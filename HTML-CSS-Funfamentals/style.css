@@ -1,0 +1,55 @@
+/* star operator to resetby-default styling*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*element wise styling [body,headers]*/
+body
+{
+    background-color: rgb(97, 182, 207);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    padding: 50px;
+    margin-right: 50px;
+    text-align: center;
+}
+h1{
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+h6{
+    font-size: 15px;
+}
+p{
+    margin-bottom: 20px;
+}
+/*styling using class [dot operator]*/
+.first{
+    color: brown;
+}
+/* styling using ID[# operator]*/
+#user-name{
+    background-color: teal;
+    border: rgb(218, 134, 8)solid;
+    width: 400px;
+    padding: 20px;
+
+}
+/*styling input and buttons*/
+input,button{
+    padding: 10px;
+}
+button{
+    background-color: gray;
+}
+/*styling using child selectors*/
+#user-name h4{
+    color: purple;
+
+}
+/*styling image using id*/
+#html-image{
+    width: 700px;
+    height: 300px;
+}
