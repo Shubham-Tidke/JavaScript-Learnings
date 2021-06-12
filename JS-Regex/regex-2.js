@@ -65,5 +65,79 @@ jennyStr.match(myRegex);//["nN","nn"]
   + logs Characters that occurs one or more time, * logs Characters that occurs zero or more
 */
 let jennyStr = "JenNy86753enne09";
-let myRegex = /en*/ig;
-jennyStr.match(myRegex);//["nN","nn"]
+let myRegex = /e*n*/ig;
+jennyStr.match(myRegex);//["enN","enn","e"]
+
+//Write a greedy regex that finds one or more criminals within a group of other people.
+// A criminal is represented by the capital letter C.
+let reCriminals = /[C]+/;
+
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; // Change this line
+let result = calRegex.test(rickyAndCal);
+console.log(result);
+/*
+Match Ending String Patterns : You can search the end of strings using the dollar sign character $ at the end of the regex.
+*/
+let theEnding = "This is a never ending story";
+let storyRegex = /story$/;
+storyRegex.test(theEnding);//true
+let noEnding = "Sometimes a story will have to end";
+storyRegex.test(noEnding);//false
+
+//---Match All Letters and Numbers--
+/*
+  Using character classes, you were able to search for all letters of the alphabet with [a-z].
+  The closest character class in JavaScript to match the alphabet is \w. This shortcut is equal to [A-Za-z0-9_].
+*/
+let longHand = /[A-Za-z0-9_]+/;
+let shortHand = /\w+/;
+let numbers = "42";
+let varNames = "important_var";
+longHand.test(numbers);//true
+shortHand.test(numbers);//true
+longHand.test(varNames);//true
+shortHand.test(varNames);//true
+
+//--- Match Everything But Letters and Numbers ---
+/*
+You can search for the opposite of the \w with \W.
+*/
+let shortHand = /\W/;
+let numbers = "42%";
+let sentence = "Coding!";
+numbers.match(shortHand); //[%] Everything except alphanumeric value
+sentence.match(shortHand);//[!]
+
+// --- Match All Numbers ---
+/*
+he shortcut to look for digit characters is \d  This is equal to the character class [0-9]
+*/
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g; // Change this line
+let result = movieName.match(numRegex).length;
+console.log(result); // 4[numbers]
+
+// --- Match All Non-Numbers ---
+/*
+  The shortcut to look for non-digit characters is \D. This is equal to the character class [^0-9]
+*/
+let movieName = "2001: A Space Odyssey";
+let noNumRegex = /\D/g; // Change this line
+let result = movieName.match(noNumRegex).length;
+console.log(result);//17
+
+
+/*
+  Regex exercise
+  rules that users have to follow when creating their username.
+  1.  Usernames can only use alpha-numeric characters.
+  2.  The only numbers in the username have to be at the end.
+   There can be zero or more of them at the end. Username cannot start with the number.
+  3.  Username letters can be lowercase and uppercase.
+  4.  Usernames have to be at least two characters long.
+  A two-character username can only use alphabet letters as characters.
+*/
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
+console.log(userCheck.test(username)); //true as username passes all cases
