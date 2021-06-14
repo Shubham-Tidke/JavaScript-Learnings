@@ -141,3 +141,41 @@ console.log(result);//17
 let username = "JackOfAllTrades";
 let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
 console.log(userCheck.test(username)); //true as username passes all cases
+
+//Match Whitespace [\s]
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let spaceRegex = /\s/g;
+whiteSpace.match(spaceRegex);//[" ", " "]
+//non-whiteSpace matches [\S]
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let nonSpaceRegex = /\S/g;
+whiteSpace.match(nonSpaceRegex).length;//32
+
+//Specify Upper and Lower Number of Matches
+/*
+You can specify the lower and upper number of patterns with quantity specifiers.
+Quantity specifiers are used with curly brackets ({ and }).
+*/
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/;
+multipleA.test(A4);//true
+multipleA.test(A2);//false
+
+//Specify Only the Lower Number of Matches
+let A4 = "haaaah";
+let A2 = "haah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleA = /ha{3,}h/;
+multipleA.test(A4);//true
+multipleA.test(A2);//false
+multipleA.test(A100);//true
+
+//Specify Exact Number of Matches
+let A4 = "haaaah";
+let A3 = "haaah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleHA = /ha{3}h/;
+multipleHA.test(A4);//false
+multipleHA.test(A3);//true
+multipleHA.test(A100);//false
