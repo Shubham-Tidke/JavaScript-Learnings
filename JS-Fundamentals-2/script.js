@@ -13,6 +13,8 @@ console.log('23'*'5')
 console.log('23'+'5')//Strings won't get converted to Number
 
 //Truthy and Falsy values
+//TRUTHY : values which are not true but considered true when encountered in a boolean context
+//FALSY : values which are not false but considered false when encountered in a boolean context
 //Falsy : 0,'',undefined,null,NaN
 console.log(Boolean(0))
 console.log(Boolean(''))
