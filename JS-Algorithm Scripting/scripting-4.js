@@ -76,3 +76,22 @@ function uniteUnique(...arr) {
   return [...new Set(arr.flat())];
 }
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+//Sum All Odd Fibonacci Numbers
+function sumFibs(num) {
+  let arr= new Array(num+2);
+  arr[0] = 0;
+  arr[1] = 1;
+  for (var i = 2; i < arr.length; i++) {
+    arr[i] = arr[i-1]+arr[i-2];
+  }
+  let fiboSum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i]<=num && arr[i] %2 === 1) {
+      fiboSum+=arr[i];
+    }
+  }
+  return fiboSum;
+}
+
+sumFibs(4);
