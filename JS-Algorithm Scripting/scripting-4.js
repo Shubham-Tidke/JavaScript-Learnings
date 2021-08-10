@@ -95,3 +95,25 @@ function sumFibs(num) {
 }
 
 sumFibs(4);
+
+//Sum of All Primes
+function sumPrimes(num) {
+  let sum = 0;
+  for (var i = 2; i < num; i++) {
+    if(isPrime(i)){
+      sum+=i;
+      console.log(i);
+    }
+
+  }
+  return sum;
+}
+function isPrime(num){
+  for (var i = 2; i < num; i++) {
+      if(num%i == 0)
+        return false;
+  }
+  return true;
+}
+
+sumPrimes(10);
