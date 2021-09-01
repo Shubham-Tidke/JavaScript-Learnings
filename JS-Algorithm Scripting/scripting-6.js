@@ -1,8 +1,22 @@
 //Palindrome Checker
 function palindrome(str) {
-  var re = /[W_]/g //removing unwanted character
+  var re = /[\W_]/g //removing unwanted character
   var newstr = str.toLowerCase().replace(re,'')//lowercase and remove unwanted character using regex
-  var reverse = newstr.split('').reverse().join('')//reversing the newstr
-  return reverse === newstr;
+  var reverseStr = newstr.split('').reverse().join('')//reversing the newstr
+  return reverseStr === newstr;
 }
 palindrome("eye");
+
+//Integer to Roman
+function convertToRoman(num) {
+ var digits = String(+num).split(""),
+key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+      "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+      "","I","II","III","IV","V","VI","VII","VIII","IX"],
+roman_num = "",
+i = 3;
+while (i--)
+roman_num = (key[+digits.pop() + (i * 10)] || "") + roman_num;
+return Array(+digits.join("") + 1).join("M") + roman_num;
+}
+convertToRoman(36);
